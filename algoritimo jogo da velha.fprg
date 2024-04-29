@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="I1HM"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-04-22 10:19:19 "/>
+        <attribute name="created" value="STFITTtFQ0U0MzZTRU5BSVhYOzIwMjQtMDQtMTg7IjA5OjU3OjI1ICI7MjM4MQ=="/>
+        <attribute name="edited" value="STFITTtFQ0U0MzZTRU5BSVhYOzIwMjQtMDQtMjI7IjEwOjE5OjE5ICI7NjsyNDgy"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <comment text="Criar o tabuleiro e jogadores, zerar as vari&#225;veis&#13;&#10;&#13;&#10;0: Posi&#231;&#227;o vazia&#13;&#10;1: Jogada na posi&#231;&#227;o do jogador 1&#13;&#10;2: Jogada na posi&#231;&#227;o do jogador 2"/>
+            <declare name="HaVencedor" type="Boolean" array="False" size=""/>
+            <assign variable="HaVencedor" expression="false"/>
+            <declare name="tabuleiro" type="Integer" array="True" size="9"/>
+            <comment text="Limpar/zerar o tabuleiro"/>
+            <declare name="index" type="Integer" array="False" size=""/>
+            <for variable="index" start="0" end="8" direction="inc" step="1">
+                <assign variable="tabuleiro[index]" expression="0"/>
+            </for>
+            <declare name="Jogador1" type="String" array="False" size=""/>
+            <assign variable="Jogador1" expression="&quot;Jogador1&quot;"/>
+            <declare name="Jogador2" type="String" array="False" size=""/>
+            <assign variable="Jogador2" expression="&quot;Jogador2&quot;"/>
+            <declare name="jogada" type="String" array="False" size=""/>
+            <comment text="Iniciar o jogo, definir quem joga primeiro."/>
+            <declare name="jogadorDaVez" type="Integer" array="False" size=""/>
+            <assign variable="jogadorDaVez" expression="1"/>
+            <declare name="linha" type="Integer" array="False" size=""/>
+            <declare name="coluna" type="Integer" array="False" size=""/>
+            <comment text="Anotar/Registrar a jogada do primeiro jogador."/>
+            <do expression="!HaVencedor">
+                <output expression="tabuleiro[0] &amp; tabuleiro[1] &amp; tabuleiro[2]" newline="True"/>
+                <output expression="tabuleiro[3] &amp; tabuleiro[4] &amp; tabuleiro[5]" newline="True"/>
+                <output expression="tabuleiro[6] &amp; tabuleiro[7] &amp; tabuleiro[8]" newline="True"/>
+                <assign variable="jogada" expression="&quot;&quot;"/>
+                <output expression="&quot;Digite a posi&#231;&#227;o da sua pe&#231;a, JOGADOR&quot; &amp; jogadorDaVez" newline="True"/>
+                <input variable="jogada"/>
+                <comment text="Simula a fun&#231;&#227;o Serial.parseint() do Arduino"/>
+                <assign variable="linha" expression="ToInteger(Char(jogada,0))"/>
+                <assign variable="coluna" expression="ToInteger(Char(jogada, 2))"/>
+                <output expression="&quot;Linha: &quot; &amp;linha&amp;&quot;;Coluna: &quot;&amp; coluna" newline="True"/>
+                <comment text="Verificar se a posi&#231;&#227;o 'jogada' &#233; v&#225;lida."/>
+                <comment text="Verificar jogada vencedora nas linhas"/>
+                <comment text="Converter a jogada texto em dois inteiros linha e coluna."/>
+                <if expression="tabuleiro[3*linha+coluna] == 0">
+                    <then>
+                        <assign variable="tabuleiro[3*linha+coluna]" expression="jogadorDaVez"/>
+                        <if expression="(tabuleiro[0]==jogadorDaVez &amp;&amp;tabuleiro [1]==jogadorDaVez &amp;&amp;tabuleiro [2]==jogadorDaVez)||&#13;&#10;(tabuleiro[3]==jogadorDaVez &amp;&amp;tabuleiro [4]==jogadorDaVez &amp;&amp;tabuleiro[5]==jogadorDaVez)||&#13;&#10;(tabuleiro[6]==jogadorDaVez &amp;&amp;tabuleiro [7]==jogadorDaVez &amp;&amp;tabuleiro[8]==jogadorDaVez)">
+                            <then>
+                                <assign variable="HaVencedor" expression="true"/>
+                            </then>
+                            <else>
+                                <if expression="(tabuleiro[0]==jogadorDaVez &amp;&amp;tabuleiro [3]==jogadorDaVez &amp;&amp;tabuleiro [6]==jogadorDaVez)||&#13;&#10;(tabuleiro[1]==jogadorDaVez &amp;&amp;tabuleiro [4]==jogadorDaVez &amp;&amp;tabuleiro[7]==jogadorDaVez)||&#13;&#10;(tabuleiro[2]==jogadorDaVez&amp;&amp;tabuleiro [5]==jogadorDaVez&amp;&amp;tabuleiro[8]==jogadorDaVez)">
+                                    <then>
+                                        <assign variable="HaVencedor" expression="true"/>
+                                    </then>
+                                    <else>
+                                        <if expression="(tabuleiro[0]==jogadorDaVez&amp;&amp;tabuleiro [3]==jogadorDaVez&amp;&amp;tabuleiro [6]==jogadorDaVez)||&#13;&#10;(tabuleiro[1]==jogadorDaVez&amp;&amp;tabuleiro [4]==jogadorDaVez&amp;&amp;tabuleiro[7]==jogadorDaVez)||&#13;&#10;(tabuleiro[2]==jogadorDaVez&amp;&amp;tabuleiro [5]==jogadorDaVez&amp;&amp;tabuleiro[8]==jogadorDaVez)">
+                                            <then>
+                                                <assign variable="HaVencedor" expression="true"/>
+                                            </then>
+                                            <else/>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                        <if expression="jogadorDaVez==1">
+                            <then>
+                                <assign variable="jogadorDaVez" expression="2"/>
+                            </then>
+                            <else>
+                                <assign variable="jogadorDaVez" expression="1"/>
+                            </else>
+                        </if>
+                    </then>
+                    <else>
+                        <comment text="Informar ao Jogador 1 que a posi&#231;&#227;o est&#225; preenchida, &#233; inv&#225;lida e ele precisa informar uma posi&#231;&#227;o v&#225;lida."/>
+                    </else>
+                </if>
+                <comment text="Verificar o tabuleiro, se houver vencedor ou empate, finalizar o jogo."/>
+                <comment text="Verificar a jogada vencedora nas linhas."/>
+            </do>
+        </body>
+    </function>
+</flowgorithm>
