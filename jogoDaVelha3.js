@@ -1,11 +1,11 @@
-﻿7function main() {
+﻿function main() {
     // Criar o tabuleiro e jogadores, zerar as variáveis
     // 
     // 0: Posição vazia
     // 1: Jogada na posição do jogador 1
     // 2: Jogada na posição do jogador 2
     var haVencedor;
-    var tabuleiro = createArray(9);
+    var tabuleiro = Array(9);
 
     // Limpar/zerar o tabuleiro
     var index;
