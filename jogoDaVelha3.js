@@ -114,10 +114,10 @@ function validaPosicao(entrada) {
     var entradaValida;
 
     entradaValida = false;
-l        if (entrada.charAt(0) == "0" || entrada.charAt(0) == "1" || entrada.charAt(0) == "2") {
+    if (entrada.length == 3) {
+        if (entrada.charAt(0) == "0" || entrada.charAt(0) == "1" || entrada.charAt(0) == "2") {
             if (entrada.charAt(2) == "0" || entrada.charAt(2) == "1" || entrada.charAt(2) == "2") {
-                entradaValida 
-                = true;
+                entradaValida = true;
             }
         }
     }
