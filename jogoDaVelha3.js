@@ -95,7 +95,7 @@ function toFloat(texto) {
     convertido = "";
     var i;
 
-    for (i = 0; i <= texto.length() - 1; i++) {
+    for (i = 0; i <= texto.length - 1; i++) {
         if (texto.charAt(i) == "0" || texto.charAt(i) == "1" || texto.charAt(i) == "2" || texto.charAt(i) == "3" || texto.charAt(i) == "4" || texto.charAt(i) == "5" || texto.charAt(i) == "6" || texto.charAt(i) == "7" || texto.charAt(i) == "8" || texto.charAt(i) == "9" || texto.charAt(i) == "") {
             convertido = convertido + texto.charAt(i);
             if (texto.charAt(i) == ",") {
@@ -114,10 +114,10 @@ function validaPosicao(entrada) {
     var entradaValida;
 
     entradaValida = false;
-    if (entrada.length() == 3) {
-        if (entrada.charAt(0) == "0" || entrada.charAt(0) == "1" || entrada.charAt(0) == "2") {
+l        if (entrada.charAt(0) == "0" || entrada.charAt(0) == "1" || entrada.charAt(0) == "2") {
             if (entrada.charAt(2) == "0" || entrada.charAt(2) == "1" || entrada.charAt(2) == "2") {
-                entradaValida = true;
+                entradaValida 
+                = true;
             }
         }
     }
