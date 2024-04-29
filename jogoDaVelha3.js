@@ -34,18 +34,18 @@
 
     // Anotar/Registrar a jogada do primeiro jogador.
     do {
-        window.alert(tabuleiro[0].ToString() + tabuleiro[1] + tabuleiro[2]);
-        window.alert(tabuleiro[3].ToString() + tabuleiro[4] + tabuleiro[5]);
-        window.alert(tabuleiro[6].ToString() + tabuleiro[7] + tabuleiro[8]);
+        console.log(tabuleiro[0].ToString() + tabuleiro[1] + tabuleiro[2]);
+        console.log(tabuleiro[3].ToString() + tabuleiro[4] + tabuleiro[5]);
+        console.log(tabuleiro[6].ToString() + tabuleiro[7] + tabuleiro[8]);
         jogada = "";
-        window.alert("Digite a posição da sua peça, JOGADOR" + jogadorDaVez);
+        console.log("Digite a posição da sua peça, JOGADOR" + jogadorDaVez);
         jogada = window.prompt('Enter a value for jogada');
         if (validaPosicao(jogada)) {
 
             // Simula a função Serial.parseint() do Arduino
             linha = parseInt(jogada.charAt(0));
             coluna = parseInt(jogada.charAt(2));
-            window.alert("Linha: " + linha + ";Coluna: " + coluna);
+            console.log("Linha: " + linha + ";Coluna: " + coluna);
 
             // Verificar se a posição 'jogada' é válida.
             // Verificar jogada vencedora nas linhas
@@ -55,7 +55,7 @@
 
                 // Verifica se há jogador na linha
                 validarTabuleiro = validaTabuleiro(jogadorDaVez, tabuleiro);
-                window.alert("validarTabuleiro: " + validarTabuleiro);
+                console.log("validarTabuleiro: " + validarTabuleiro);
 
                 // Troca o jogador.
                 if (validarTabuleiro != 2) {
@@ -66,7 +66,7 @@
                     }
                 }
             } else {
-                window.alert("Posição ocupada, jogue novamente em outra posição!");
+                console.log("Posição ocupada, jogue novamente em outra posição!");
 
                 // Informar ao Jogador 1 que a posição está preenchida, é inválida e ele precisa informar uma posição válida.
             }
@@ -74,13 +74,13 @@
             // Verificar o tabuleiro, se houver vencedor ou empate, finalizar o jogo.
             velha = velha + 1;
         } else {
-            window.alert("ENTRADA INVÁLIDA");
+            console.log("ENTRADA INVÁLIDA");
         }
     } while (validarTabuleiro == 0 && velha <= 9);
     if (validarTabuleiro == 2) {
-        window.alert("Parabéns por sua vitória, jogador" + jogadorDaVez);
+        console.log("Parabéns por sua vitória, jogador" + jogadorDaVez);
     } else {
-        window.alert("VELHA!!!");
+        console.log("VELHA!!!");
     }
 
     // Verificar o tabuleiro, se houver ganhador ou empate, finalizar o jogo
