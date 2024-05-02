@@ -111,8 +111,8 @@ function validaPosicao(entrada) {
     var entradaValida;
 
     entradaValida = false;
-    console.log(entrada.length());
-    if (entrada.length() == 3) {
+    console.log(entrada.length);
+    if (entrada.length == 3) {
         console.log("Comprimento da string igual  3");
         if (entrada.charAt(0) == "0" || entrada.charAt(0) == "1" || entrada.charAt(0) == "2") {
             console.log(entrada.charAt(0));
