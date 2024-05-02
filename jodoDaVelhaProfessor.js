@@ -1,6 +1,5 @@
 ﻿function main() {
     // Criar o tabuleiro e jogadores, zerar as variáveis.
-    // 
     // 0: Posição vazia
     // 1: jogada na Posição do jogador 1
     // 2: jogada na Posição do jogador 2
