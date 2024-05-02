@@ -9,7 +9,7 @@
     var haVencedor;
 
     haVencedor = false;
-    var tabuleiro = createArray(9);
+    var tabuleiro = Array(9);
 
     // Limpar/zerar o tabuleiro
     var index;
